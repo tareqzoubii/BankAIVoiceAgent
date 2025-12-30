@@ -9,9 +9,9 @@ class Account(BaseModel):
     name: str
     phone: int  
     national_id: int 
-    account_type: str [cite: 11]
+    account_type: str 
     balance: Optional[str] = "0 JOD"
-    status: Optional[str] = "نشط" [cite: 84]
+    status: Optional[str] = "نشط" 
 
 # قاعدة بيانات وهمية في الذاكرة
 db = {}
