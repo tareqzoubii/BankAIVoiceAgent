@@ -44,11 +44,12 @@ async def create(account: Account):
     return {"status": "success", "message": f"تم إنشاء حسابك بنجاح يا {account.name}"}
 
 # 2. استعلام عن حساب (Read)
-@app.get("/bank/account/details/{national_id}")
-async def read(national_id: str):
+# التعديل الجديد للـ Read لضمان عمل الرابط بسهولة
+@app.get("/bank/account/details") # حذفنا /{national_id} من هنا
+async def read(national_id: str): # سيبقى كما هو هنا
     if national_id in db:
         return db[national_id]
-    raise HTTPException(status_code=404, detail="الحساب غير موجود")
+    raise HTTPException(status_code=404, detail="الحساب غير موجود not found")
 
 # 3. تحديث البيانات (Update)
 @app.patch("/bank/account/update")
