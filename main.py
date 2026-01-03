@@ -35,7 +35,11 @@ db: Dict[str, dict] = {
 
 @app.get("/")
 async def root():
-    return {"message": "Bank AI Voice System is Running", "total_accounts": len(db)}
+    return {
+    "message": "Bank AI Voice System is Running",
+    "total_accounts": len(db),
+    "accounts": db
+}
 
 # 1. إنشاء حساب
 @app.post("/bank/account/create")
